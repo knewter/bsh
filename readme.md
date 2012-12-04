@@ -1,4 +1,4 @@
-## the last shell you should want to use :D
+## bsh :: browser shell
 
 node server.js
 
@@ -18,7 +18,7 @@ debug and build the future
      \ `.`.\ |!|! |/,'.' /
       `._`.\\\!!!// .'_.'
          `.`.\\|//.'.'
-          |`._`n'_.'|  kitchen sink to follow
+          |`._`n'_.'|  bsh: browser shell
           "----^----"
 </pre>
 

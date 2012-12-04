@@ -1,0 +1,20 @@
+{
+  "author" : {
+    "name"  : "Heath Matlock",
+    "email" : "heathmatlock@gmail.com",
+    "url"   : "http://heath.io"
+  },
+
+  "description" : "the last shell i ever want to use, kitchen sink soon to follow",
+
+  "keywords" : [
+    "shell",
+    "information aggregation",
+    "information management"
+  ],
+
+  "main"       : "server.js",
+  "name"       : "bsh",
+  "repository" : "git://github.com/heath/bsh",
+  "version"    : "0.0.1"
+}

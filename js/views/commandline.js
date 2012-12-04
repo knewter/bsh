@@ -32,10 +32,10 @@ define([
     },
 
     navKeys: {
-       // 9: function() {}, // tab
-      13: function() {this.evaluate(this.el.value)}, // enter
-      38: function() {this.displayHistory(-1)}, // up
-      40: function() {this.displayHistory(1)}, // down
+      // 9 : function() {}, // tab
+      13 : function() {this.evaluate(this.el.value)}, // enter
+      38 : function() {this.displayHistory(-1)}, // up
+      40 : function() {this.displayHistory(1)}, // down
     },
 
     history : [],

@@ -5,7 +5,8 @@
     "url"   : "http://heath.io"
   },
 
-  "description" : "the last shell i ever want to use, kitchen sink soon to follow",
+  "contributors" : ["Josh Adams", "josh@isotope11.com", "http://github.com/knewter"],
+  "description"  : "the last shell i ever want to use, kitchen sink soon to follow",
 
   "keywords" : [
     "shell",

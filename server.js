@@ -1,6 +1,8 @@
-var http = require("http"),
-    path = require("path"),
-    fs   = require("fs"),
+var http   = require("http"),
+    path   = require("path"),
+    fs     = require("fs"),
+    sass   = require("node-sass"),
+    port   = 8001,
     extensions = {
       ".html" : "text/html",
       ".css"  : "text/css",
@@ -24,34 +26,58 @@ http.createServer(function(req, res) {
     path.exists(localPath, function(exists) {
       if (exists) {
         getFile(localPath, extensions[ext], res);
+      } else if(localPath === "./assets/stylesheets/style.css") {
+        // Handle the styles with sass
+        fs.readFile("./assets/stylesheets/style.scss", function(err, contents) {
+          if(!err) {
+            sass.render(contents, function(err, css){
+              if (!err){
+                write200(res, "text/css", css);
+              } else {
+                write500(res);
+              }
+            });
+          } else {
+            write500(res);
+          }
+        });
       } else {
         console.log("Not found");
-        res.writeHead(404);
-        res.end();
+        write404(res);
       }
     });
-
   } else {
-    res.writeHead(404);
-    res.end();
-
+    write404(res);
   }
-}).listen(8001);
+}).listen(port);
+
+console.log("listening at port " + port);
 
 function getFile(localPath, mimeType, res) {
-
   // read the file in and return it, or return a 500 if it can't be read
   fs.readFile(localPath, function(err, contents) {
     if (!err) {
-      res.writeHead(200, {
-        "Content-Type": mimeType,
-        "Content-Length": contents.length
-      });
-      res.end(contents);
+      write200(res, mimeType, contents);
     } else {
-      res.writeHead(500);
-      res.end();
+      write500(res);
     }
   });
+};
 
-}
+function write200(res, mimeType, contents){
+  res.writeHead(200, {
+    "Content-Type": mimeType,
+    "Content-Length": contents.length
+  });
+  res.end(contents);
+};
+
+function write500(res) {
+  res.writeHead(500);
+  res.end();
+};
+
+function write404(res) {
+  res.writeHead(404);
+  res.end();
+};

@@ -1,8 +1,10 @@
 ## bsh :: browser shell
 
+#### install
+    npm install
 
 #### launch
-    node server.js
+    npm start
 
 #### visit
     http://localhost:8001/

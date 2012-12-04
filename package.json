@@ -13,6 +13,14 @@
     "information management"
   ],
 
+  "dependencies" : {
+    "node-sass" : ""
+  },
+
+  "scripts" : {
+    "start" : "node server.js"
+  },
+
   "main"       : "server.js",
   "name"       : "bsh",
   "repository" : "git://github.com/heath/bsh",

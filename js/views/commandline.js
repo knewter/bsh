@@ -45,6 +45,10 @@ define([
     },
 
     evaluate: function(input) {
+      debugger;
+
+      //clear the line to make me feel like something is happening
+      this.el.value = '';
       // push to history
       this.history.push(input);
       // check to see if this is a valid command

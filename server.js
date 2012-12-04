@@ -31,8 +31,6 @@ http.createServer(function(req, res) {
         fs.readFile("./assets/stylesheets/style.scss", function(err, contents) {
           if(!err) {
             sass.render(contents, function(err, css){
-              console.log(err);
-              console.log(css);
               if (!err){
                 write200(res, "text/css", css);
               } else {

@@ -32,14 +32,21 @@ $appBackgroundColor: #0c0c0c;
 $selectedTextBackgroundColor: pink;
 
 html, body {
+  background: -webkit-radial-gradient(center center, contain, rgba(21, 60, 141, 0.53), black) center center no-repeat, black;
   background-color: $appBackgroundColor;
-  font-family: Ubuntu, Arial;
   margin: 0;
   padding: 0;
 }
 
+#terminal-wrapper {
+  background: url(assets/images/interlace.png) top left repeat, rgba(255, 255, 255, 0.07);
+  height: 100%;
+  width: 100%;
+}
+
 input {
-  font-size: 16px;
+  font-family: monospace;
+  font-size: 13px;
   color: #CCCCCC;
   background-color: white(.1);
   border: none;
@@ -71,18 +78,4 @@ fieldset {
 a, a:visited {
   color: #ffffff;
   text-decoration: none;
-}
-
-footer {
-  @include experimental-value(display, box);
-  @include experimental(box-orient,    horizontal);
-  @include experimental(box-pack,      center);
-  @include experimental(box-align,     center);
-  background-color : #0C0C0C;
-  bottom           : 0;
-  color            : #D3D3D3;
-  font-size : 10px;
-  height    : 70px;
-  position  : absolute;
-  width     : 100%;
 }

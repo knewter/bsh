@@ -1,14 +1,15 @@
 ## bsh :: browser shell
 
 
-#### launch: 
-> node server.js
-
+#### launch
+node server.js
 
 #### visit
-> http://localhost:8001/
+http://localhost:8001/
 
-## build the future!
+#### build the future!
+visit:
+
 
 <pre>
               ___

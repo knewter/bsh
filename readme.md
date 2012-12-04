@@ -1,3 +1,4 @@
+#<pre>
 #            ___
 #        .-"; ! ;"-.
 #      .'!  : | :  !`.
@@ -11,6 +12,7 @@
 #       `.`.\\|//.'.'
 #        |`._`n'_.'|  bsh :: browser shell
 #        "----^----"
+#</pre>
 ## the last shell you should want to use :D
 
 node server.js

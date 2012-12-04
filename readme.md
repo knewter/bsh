@@ -8,7 +8,6 @@ node server.js
 http://localhost:8001/
 
 #### build the future!
-visit:
 
 
 <pre>

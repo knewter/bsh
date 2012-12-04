@@ -1,10 +1,16 @@
 ## bsh :: browser shell
 
+
+launch: 
+
 node server.js
+
+
+visit:
 
 http://localhost:8001/
 
-debug and build the future
+build the future!
 
 <pre>
               ___
@@ -18,7 +24,7 @@ debug and build the future
      \ `.`.\ |!|! |/,'.' /
       `._`.\\\!!!// .'_.'
          `.`.\\|//.'.'
-          |`._`n'_.'|  bsh: browser shell
+          |`._`n'_.'|  kitchen sink to follow...
           "----^----"
 </pre>
 

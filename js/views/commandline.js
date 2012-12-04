@@ -11,6 +11,7 @@ define([
     initialize: function() {
       // console.log(1);
       this.traversalPointer = this.traversalPointer || this.history[this.history - 1];
+      this.historyRefPointer = -1;
     },
 
     events: {
@@ -45,12 +46,12 @@ define([
     },
 
     evaluate: function(input) {
-      debugger;
-
       //clear the line to make me feel like something is happening
       this.el.value = '';
       // push to history
       this.history.push(input);
+      // Update pointer to end of the list
+      this.historyRefPointer = this.history.length;
       // check to see if this is a valid command
       this.checkForValidCommand(input);
     },
@@ -62,18 +63,28 @@ define([
     },
 
     displayHistory: function (sign) {
-      if (this.historyRefPointer) {
-        this.historyRefPointer = this.historyRefPointer + sign;
-      } else {
-        this.historyRefPointer = this.history.length + sign;
+      this.historyRefPointer = this.historyRefPointer + sign;
+
+      // Can't traverse history if there is none
+      if(this.history.length == 0){
+        return false;
       }
 
-      if (this.historyRefPointer + sign < history.length) {
-        this.el.value = this.history[this.historyRefPointer];
-        console.log("this.history.length: ", this.history.length);
-        console.log("this.historyRefPointer: ", this.historyRefPointer);
+      // Can't go earlier in the history than exists
+      if(this.historyRefPointer < 0){
+        this.historyRefPointer = 0;
       }
-      window.th = this;
+
+      // Can go at most to the end of the history list
+      if(this.historyRefPointer > this.history.length) {
+        this.historyRefPointer = this.history.length;
+      }
+
+      if (this.historyRefPointer < this.history.length) {
+        this.el.value = this.history[this.historyRefPointer];
+      } else {
+        this.el.value = '';
+      }
     }
   });
 

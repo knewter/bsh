@@ -1,0 +1,88 @@
+// functions
+@function black($opacity){
+  @return rgba(0,0,0,$opacity);
+}
+@function white($opacity){
+  @return rgba(255,255,255,$opacity);
+}
+// end functions
+@mixin experimental($property, $value){
+  -webkit-#{$property} : $value;
+   -khtml-#{$property} : $value;
+     -moz-#{$property} : $value;
+      -ms-#{$property} : $value;
+       -o-#{$property} : $value;
+          #{$property} : $value;
+}
+
+// Used when the property is standard but the value is vendor-specific
+@mixin experimental-value($property, $value){
+  $property : -webkit-#{$value};
+  $property :  -khtml-#{$value};
+  $property :    -moz-#{$value};
+  $property :     -ms-#{$value};
+  $property :      -o-#{$value};
+  $property :         #{$value};
+}
+
+// mixins
+// end mixins
+
+$appBackgroundColor: #0c0c0c;
+$selectedTextBackgroundColor: pink;
+
+html, body {
+  background-color: $appBackgroundColor;
+  font-family: Ubuntu, Arial;
+  margin: 0;
+  padding: 0;
+}
+
+input {
+  font-size: 16px;
+  color: #CCCCCC;
+  background-color: white(.1);
+  border: none;
+  outline: 0;
+  padding : 12px;
+  width: 100%;
+  @include experimental-value(display, box);
+  @include experimental(box-orient,    vertical);
+  @include experimental(box-pack,      center);
+  @include experimental(box-align,     center);
+}
+
+input::selection {
+  background-color: $selectedTextBackgroundColor;
+}
+
+fieldset {
+  border:none;
+}
+
+/* thought about it */
+.box{
+  @include experimental-value(display, box);
+  @include experimental(box-orient,    vertical);
+  @include experimental(box-pack,      center);
+  @include experimental(box-align,     center);
+}
+  
+a, a:visited {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+footer {
+  @include experimental-value(display, box);
+  @include experimental(box-orient,    horizontal);
+  @include experimental(box-pack,      center);
+  @include experimental(box-align,     center);
+  background-color : #0C0C0C;
+  bottom           : 0;
+  color            : #D3D3D3;
+  font-size : 10px;
+  height    : 70px;
+  position  : absolute;
+  width     : 100%;
+}

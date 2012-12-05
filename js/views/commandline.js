@@ -1,35 +1,30 @@
 define([
     'jquery',
     'underscore',
-    'backbone'
+    'backbone',
 ], function($, _, Backbone) {
 
   return Backbone.View.extend({
 
-    el: '#cli',
+    el: '#stdin',
 
     initialize: function() {
       // console.log(1);
       this.traversalPointer = this.traversalPointer || this.history[this.history - 1];
       this.historyRefPointer = -1;
+      // this.$el.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
     },
 
     events: {
-      'click'   : 'doStuff',
       'keydown' : 'handleKeys'
     },
 
-    doStuff: function() {
-      console.log('omg omg omg');
-    },
-
     handleKeys: function(e) {
-      console.log(e.keyCode);
+      // console.log(e.keyCode);
       var code = parseInt(e.keyCode, 10);
       if (this.navKeys[code]) {
           this.navKeys[code].call(this);
         }
-
     },
 
     navKeys: {
@@ -42,7 +37,22 @@ define([
     history : [],
 
     commands: {
-      'foo' : function(){console.log('baaaaaaaaar!')}
+      // typical gnu apps
+      'cat'     : function(){}, 'cd'      : function(){},
+      'cp'      : function(){}, 'find'    : function(){},
+      'history' : function(){}, 'less'    : function(){},
+      'ls'      : function(){}, 'mkdir'   : function(){},
+      'mv'      : function(){}, 'pwd'     : function(){},
+      'rm'      : function(){}, 'rmdir'   : function(){},
+      // typical cli apps
+      'curl'    : function(){}, 'git'     : function(){},
+      'node'    : function(){}, 'ssh'     : function(){}, 
+      'tmux'    : function(){}, 'vim'     : function(){},
+       // web apps
+      'chat'    : function(){}, 'email'   : function(){}, 
+      'search'  : function(){}, 'wiki'    : function(){},
+      // other
+      'feh'     : function(){}, 'mplayer' : function(){}
     },
 
     evaluate: function(input) {

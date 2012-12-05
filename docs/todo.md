@@ -1,0 +1,3 @@
+- piping
+- cli apps
+- plug into a volunteer computing platform..maybe

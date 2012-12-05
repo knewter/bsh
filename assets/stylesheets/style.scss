@@ -28,54 +28,54 @@
 // mixins
 // end mixins
 
-$appBackgroundColor: #0c0c0c;
+$appBackgroundColor: #161616;
 $selectedTextBackgroundColor: pink;
 
 html, body {
-  background: -webkit-radial-gradient(center center, contain, rgba(21, 60, 141, 0.53), black) center center no-repeat, black;
   background-color: $appBackgroundColor;
+  font-family: monospace;
   margin: 0;
   padding: 0;
 }
 
-#terminal-wrapper {
-  background: url(assets/images/interlace.png) top left repeat, rgba(255, 255, 255, 0.07);
+#terminal {
+  background: url(../images/interlace.png) top left repeat, rgba(255, 255, 255, 0.07);
+  @include experimental(display, box);
+  @include experimental(box-orient, horizontal);
   height: 100%;
   width: 100%;
 }
 
+#prompt {
+  color: rgba(0, 142, 236, 1.0);
+  font-weight: bold;
+  margin-left: 20px;
+  @include experimental(box-flex, 1);
+}
 input {
-  font-family: monospace;
-  font-size: 13px;
-  color: #CCCCCC;
-  background-color: white(.1);
-  border: none;
+  border-bottom: 1px solid rgba(0, 142, 236, 0.9);
+    //TODO: piping
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  font-family: Ubuntu Mono;
+  font-size: 16px;
+  color: rgba(0, 142, 236, 1);
+  background-color: transparent;
   outline: 0;
   padding : 12px;
-  width: 100%;
-  @include experimental-value(display, box);
-  @include experimental(box-orient,    vertical);
-  @include experimental(box-pack,      center);
-  @include experimental(box-align,     center);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.05);
+  width: 91%;
+  @include experimental(box-flex, 2);
 }
 
 input::selection {
   background-color: $selectedTextBackgroundColor;
 }
+input:focus {
+  color: rgba(0, 142, 236, 1);
+}
 
 fieldset {
   border:none;
-}
-
-/* thought about it */
-.box{
-  @include experimental-value(display, box);
-  @include experimental(box-orient,    vertical);
-  @include experimental(box-pack,      center);
-  @include experimental(box-align,     center);
-}
-  
-a, a:visited {
-  color: #ffffff;
-  text-decoration: none;
 }

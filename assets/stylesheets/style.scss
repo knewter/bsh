@@ -102,3 +102,16 @@ input:focus {
 fieldset {
   border:transparent;
 }
+
+#stdout {
+  color: rgba(0, 142, 236, 0.9);
+  display: -webkit-box;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  -webkit-box-orient: horizontal;
+  width: 100%;
+  height: 60%; 
+  font-size: 30px;
+  font-family: Ubuntu Mono;
+  font-weight: bold;
+}

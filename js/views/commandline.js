@@ -40,7 +40,7 @@ define([
 
     gainFocus: function() {
       this.prompt.gainFocus();
-      if (this.el.value === '' || this.outOfFocusMessage) {
+      if ((this.el.value === '') || (this.el.value === this.outOfFocusMessage)) {
         this.el.value = '';
       }
     },

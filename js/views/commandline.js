@@ -2,21 +2,34 @@ define([
     'jquery',
     'underscore',
     'backbone',
-], function($, _, Backbone) {
+    '../views/prompt'
+], function($, _, Backbone, Prompt) {
 
   return Backbone.View.extend({
 
     el: '#stdin',
 
     initialize: function() {
-      // console.log(1);
       this.traversalPointer = this.traversalPointer || this.history[this.history - 1];
       this.historyRefPointer = -1;
-      // this.$el.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+      this.prompt = new Prompt;
     },
 
     events: {
-      'keydown' : 'handleKeys'
+      'keydown' : 'handleKeys',
+      'focusout' : 'loseFocus',
+      'focus'    : 'gainFocus'
+    },
+
+    gainFocus: function() {
+      this.prompt.gainFocus();
+    },
+
+    loseFocus: function() {
+      this.prompt.loseFocus();
+      if (this.el.value === '') {
+        this.el.value = 'Currently out of focus';
+      }
     },
 
     handleKeys: function(e) {
@@ -37,6 +50,8 @@ define([
     history : [],
 
     commands: {
+      // working on this one
+      ls : function() {},
       // typical gnu apps
       'cat'     : function(){}, 'cd'      : function(){},
       'cp'      : function(){}, 'find'    : function(){},

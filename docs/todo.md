@@ -1,3 +1,4 @@
+- check the input while user is typing
 - piping
 - cli apps
 - plug into a volunteer computing platform..maybe

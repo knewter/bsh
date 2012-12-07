@@ -10,10 +10,22 @@ define([
     // template: '',
 
     initialize: function() {
+      // console.log('hey hey heeeeeeeeeeeeeeeeeeey');
     },
 
     events: {
-    }
+    },
+   
+    loseFocus: function(){
+      // debugger;
+      this.$el.addClass('no-focus');
+    },
+
+  gainFocus: function(){
+    // debugger;
+    this.$el.removeClass('no-focus');
+  },
+
 
   });
 

@@ -2,37 +2,63 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    '../views/prompt'
-], function($, _, Backbone, Prompt) {
+    '../views/prompt',
+    '../views/stdout'
+], function($, _, Backbone, Prompt, StandardOutput) {
 
   return Backbone.View.extend({
 
     el: '#stdin',
 
     initialize: function() {
-      this.traversalPointer = this.traversalPointer || this.history[this.history - 1];
-      this.historyRefPointer = -1;
+      STDOUT      = new StandardOutput()
       this.prompt = new Prompt;
-    },
 
+      this.traversalPointer  = this.traversalPointer || this.history[this.history - 1];
+      this.historyRefPointer = -1;
+      this.outOfFocusMessage = 'Currently out of focus';
+
+      // Create the file system
+      var storageType       = window.PERSISTENT,
+          storageSize       = Infinity;
+      window.requestFileSystem = window.webkitRequestFileSystem;
+      window.requestFileSystem(storageType, storageSize, function(fileSystem) {
+        this.fs   = fileSystem,
+        this.cwd  = fs.root,
+        this.type = storageType,
+        this.size = storageSize;
+        // debugger;
+      });
+    },
+      
     events: {
-      'keydown' : 'handleKeys',
-      'focusout' : 'loseFocus',
-      'focus'    : 'gainFocus'
+      'keydown'   : 'handleKeys',
+      'focusout'  : 'loseFocus' ,
+      'focusin'   : 'gainFocus' ,
+      'focus'     : 'gainFocus'
     },
 
     gainFocus: function() {
       this.prompt.gainFocus();
+      if (this.el.value === '' || this.outOfFocusMessage) {
+        this.el.value = '';
+      }
     },
 
     loseFocus: function() {
       this.prompt.loseFocus();
       if (this.el.value === '') {
-        this.el.value = 'Currently out of focus';
+        this.el.value = this.outOfFocusMessage;
       }
     },
 
     handleKeys: function(e) {
+      // if (e.keyCode == 27) { // Esc
+      //   toggleHelp();
+      //   e.stopPropagation();
+      //   e.preventDefault();
+      // }
+
       // console.log(e.keyCode);
       var code = parseInt(e.keyCode, 10);
       if (this.navKeys[code]) {
@@ -51,7 +77,7 @@ define([
 
     commands: {
       // working on this one
-      ls : function() {},
+      cwd: function() {STDOUT.setOutput(window.cwd.fullPath)},
       // typical gnu apps
       'cat'     : function(){}, 'cd'      : function(){},
       'cp'      : function(){}, 'find'    : function(){},

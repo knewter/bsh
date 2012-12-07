@@ -21,10 +21,10 @@ define([
       this.$el.addClass('no-focus');
     },
 
-  gainFocus: function(){
-    // debugger;
-    this.$el.removeClass('no-focus');
-  },
+    gainFocus: function(){
+      // debugger;
+      this.$el.removeClass('no-focus');
+    },
 
 
   });

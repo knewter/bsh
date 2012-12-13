@@ -1,0 +1,55 @@
+{
+  "background" : {
+      "scripts" : [
+        "scripts/background.js"        ,
+        "scripts/lib/jquery.js"        ,
+        "scripts/lib/underscore.js"    ,
+        "scripts/lib/backbone.js"      ,
+        "scripts/lib/require.js"       ,
+        "scripts/lib/text.js"          ,
+        "scripts/views/commandline.js" ,
+        "scripts/views/prompt.js"      ,
+        "scripts/views/stdout.js"      ,
+        "scripts/main.js"
+      ]
+    },
+
+  "browser_action" : {
+    "default_icon" : "icon-16.png" ,
+    "name"         : "bsh"
+  },
+
+  "content_security_policy" : "script-src 'self' https://heath.io/; object-src 'self'" ,
+  "default_locale"          : "en"                                                     ,
+  "description"             : "__MSG_appDescription__"                                 ,
+
+  "icons" : {
+    "16"  : "icon-16.png"  ,
+    "48"  : "icon-48.png"  ,
+    "128" : "icon-128.png"
+  },
+
+  "manifest_version" : 2                 ,
+  "name"             : "__MSG_appName__" ,
+
+  "permissions": [
+    "*://*.heath.io/*" ,
+    "audioCapture"     ,
+    "background"       ,
+    "bluetooth"        ,
+    "browserTag"       ,
+    "experimental"     ,
+    "identity"         ,
+    "idle"             ,
+    "tabs"             ,
+    "unlimitedStorage" ,
+    "serial"           ,
+    "usb"              ,
+    "videoCapture"     ,
+    "webRequest"       ,
+    "webNavigation"
+  ],
+
+  "update_url" : "http://50.116.41.64/updates.xml" ,
+  "version"    : "1"
+}

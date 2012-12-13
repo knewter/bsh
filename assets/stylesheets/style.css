@@ -1,0 +1,85 @@
+html, body {
+  background-color : #161616;
+  font-family      : monospace;
+  margin           : 0;
+  padding          : 0;
+}
+
+#terminal {
+  background         : url(../images/interlace.png) top left repeat, rgba(255, 255, 255, 0.07);
+  display            : -webkit-box;
+  height             : 100%;
+  width              : 100%;
+  -webkit-box-orient : horizontal;
+  -webkit-transition : -webkit-transform 2s ease-in;
+} 
+
+#prompt {
+  color            : rgba(0, 142, 236, 1.0);
+  font-size        : 12px;
+  font-weight      : bold;
+  margin-left      : 20px;
+  -webkit-box-flex : 1;
+}
+
+#prompt.no-focus {
+  color       : rgba(66, 66, 66, 0.9);
+  font-size   : 12px;
+  font-weight : bold;
+}
+
+input {
+  background-color : black;
+  border-bottom    : 1px solid rgba(66, 66, 66, 0.9);
+  border-left      : transparent;
+  border-right     : transparent;
+  border-top       : transparent;
+  color            : rgba(66, 66, 66, 0.9);
+  display          : -webkit-box;
+  font-family      : Ubuntu Mono;
+  font-size        : 15px;
+  height           : 30px;
+  outline          : 0;
+  padding          : 12px;
+  text-shadow      : 0 0 20px rgba(255, 255, 255, .6);
+  width            : 91%;
+  -webkit-box-flex : 2;
+}
+
+input::selection {
+  background-color : pink;
+}
+input:focus {
+  /* a reminder of something to do later */
+  /* background: url(../images/microphone.png) no-repeat 100%; */
+  background-color : transparent;
+  border-bottom    : 1px solid rgba(0, 142, 236, 0.9);
+  border-left      : transparent;
+  border-right     : transparent;
+  border-top       : transparent;
+  color            : rgba(0, 142, 236, 1);
+  display          : -webkit-box;
+  font-family      : Ubuntu Mono;
+  font-size        : 15px;
+  height           : 30px;
+  outline          : 0;
+  padding          : 12px;
+  text-shadow      : 0 0 5px rgba(255, 255, 255, 0.05);
+  -webkit-box-flex : 2;
+  width            : 91%;
+}
+
+fieldset {
+  border :transparent;
+}
+
+#stdout {
+  -webkit-box-align  : center;
+  -webkit-box-orient : horizontal;
+  -webkit-box-pack   : center;
+  color              : rgba(0, 142, 236, 0.9);
+  display            : -webkit-box;
+  font-size          : 30px;
+  font-weight        : bold;
+  height             : 85%;
+}

@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "bsh",
+    "description": "The name of the application"
+  },
+  "appDescription": {
+    "message": "the last shell i ever want to use, kitchen sink soon to follow",
+    "description": "The description of the application"
+  }
+}

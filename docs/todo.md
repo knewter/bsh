@@ -1,0 +1,10 @@
+- allow for authentification and maintaining of a session with external server
+- the external server should:
+  - listen for certain requests and return appropriate responses, get requests for now
+  - automatic storing of user data
+  - update the extension as necessary
+  - fetch sites on request
+    - curl -O http://twitter.com should trigger a fetch on the server side and a serving of the result back to the extension
+- check the input while user is typing
+- piping
+- cli apps

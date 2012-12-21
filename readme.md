@@ -68,6 +68,7 @@ This project adheres to the Semantic Versioning 2.0.0-rc.1 rules described at:
   Bsh supports common utilities found in most POSIX/Linux compliant systems. The below list is
   only a representative sample of the available commands and these descriptions aren't entirely
   accurate. A description of available options is needed.
+
   ast:
 
     an interface for accessing the shell's generated abstract syntax tree

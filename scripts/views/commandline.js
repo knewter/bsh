@@ -3,8 +3,9 @@ define([
     'underscore',
     'backbone',
     '../views/prompt',
-    '../views/stdout'
-], function($, _, Backbone, Prompt, StandardOutput) {
+    '../views/stdout',
+    '../views/vim'
+], function($, _, Backbone, Prompt, StandardOutput, Vim) {
 
   return Backbone.View.extend({
 
@@ -19,8 +20,8 @@ define([
       this.outOfFocusMessage = 'Currently out of focus';
 
       // Create the file system
-      var storageType       = window.PERSISTENT,
-          storageSize       = Infinity;
+      var storageType = window.PERSISTENT,
+          storageSize = Infinity;
       window.requestFileSystem = window.webkitRequestFileSystem;
       window.requestFileSystem(storageType, storageSize, function(fileSystem) {
         this.fs   = fileSystem,
@@ -107,49 +108,88 @@ define([
     history : [],
 
     commands: {
-      // working on this one
+
+      // This needs to be cleaner, so it's commented out for now
+      // // this created a file called 'test'
+      // cwd.getFile('test', {create: true, exclusive: true}, function(fileEntry) {
+      //   fileEntry.createWriter(function(fileWriter) {
+      //     fileWriter.write('test');
+      //   });
+      // })
+
+      // // the following is needed to ls
+      // var util = util || {};
+      // util.toArray = function(list) {
+      //   return Array.prototype.slice.call(list || [], 0);
+      // };
+
+      // ls(function(entries) {
+      //   if (entries.length) {
+      //     var html = formatColumns_(entries);
+      //     util.toArray(entries).forEach(function(entry, i) {
+      //       html.push(
+      //         '<span class="', entry.isDirectory ? 'folder' : 'file',
+      //         '">', entry.name, '</span><br>');
+      //     });
+      //     html.push('</div>');
+      //     document.getElementById('stdout').innerHTML = (html.join(''));
+      //   }
+      // });
+
+      // function ls(successCallback) {
+      //   if (!fs) {
+      //     return;
+      //   }
+
+      //   // Read contents of current working directory. According to spec, need to
+      //   // keep calling readEntries() until length of result array is 0. We're
+      //   // guarenteed the same entry won't be returned again.
+      //   var entries = [];
+      //   var reader = cwd.createReader();
+
+      //   var readEntries = function() {
+      //     reader.readEntries(function(results) {
+      //       console.log('results: ', results);
+      //       console.log('entries: ', entries);
+      //       if (!results.length) {
+      //         console.log(1);
+
+      //         entries = entries.sort();
+      //         console.log(entries);
+      //         successCallback(entries);
+      //       } else {
+      //         console.log(2);
+      //         entries = entries.concat(util.toArray(results));
+      //         console.log(entries);
+      //         readEntries();
+      //       }
+      //     });
+      //   };
+
+      //   readEntries();
+      // },
+      
+      // the following is my own personal code,
+      // the code above is for touching, and LSing
       pwd: function() {
         // debugger;
-        STDOUT.setOutput(window.cwd.fullPath)
+        STDOUT.setOutput(window.cwd.fullPath);
       },
 
+      clear: function() {
+        STDOUT.setOutput('');
+      },
+
+      history: function() {
+        STDOUT.setOutput(this.history);
+      },
+
+      //FIXME
       mkdir: function() {
-        // the following commented code is for handling flags
-        // not bothering with it right now
-        // var dashP = false;
-        // var index = this.args.indexOf('-p');
-        // if (index != -1) {
-        //   this.args.splice(index, 1);
-        //   dashP = true;
-        // }
-
-        // if (!this.args.length) {
-        //   output('usage: ' + this.cmd + ' [-p] directory<br>');
-        // }
-
-        // Create each directory passed as an argument.
-        this.args.forEach(function(dirName, i) {
-          // if (dashP) {
-          var folders = dirName.split('/');
-
-          // Throw out './' or '/' if present on the beginning of our path.
-          if (folders[0] == '.' || folders[0] == '') {
-            folders = folders.slice(1);
-          }
-          this.createDir(window.cwd, folders);
-          // } 
-          // else {
-          //   window.cwd.getDirectory(dirName, {create: true, exclusive: true},function(){},function(e) { 
-          //     this.invalidOpForEntryType(e, this.cmd, dirName); 
-          //   });
-          // }
-        });
+        cwd.getDirectory('beepboop', {create: true, exclusive: true});
       },
 
-      //mkdir and ls are a bit more difficult than i originally thought...
-      // moving onto MOAR FEATURES!
-
-
+      //FIXME
       curl: function() {
         var url = this.args[0];
           var getUrl = function(url) {
@@ -164,9 +204,14 @@ define([
             });
           };
           getUrl.call(this, url);
-        }
+      },
+
+      vim: function() {
+        debugger;
+      }
 
     },
+
 
       // gnu cli apps
       // TODO: 'cat'
@@ -178,12 +223,13 @@ define([
       // TODO: 'ls'
       // TODO: 'mkdir'
       // TODO: 'mv'
-      // DONE: 'pwd'
+      // D: 'pwd'
       // TODO: 'rm'
       // TODO: 'rmdir'
+      // TODO: touch
 
       // other cli apps
-      // TODO: 'curl'
+      // D: 'curl'
       // TODO: 'feh'
       // TODO: 'git'
       // TODO: 'mplayer'

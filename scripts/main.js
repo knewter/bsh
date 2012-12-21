@@ -18,13 +18,15 @@ require.config({
     jquery     : './lib/jquery',
     underscore : './lib/underscore',
     backbone   : './lib/backbone',
-    text       : './lib/text'
+    text       : './lib/text',
+    three      : './lib/three'
   }
 });
 
 require([
-  './views/commandline'
-], function(CommandLine) {
-
+  './views/commandline',
+  './views/canvas'
+], function(CommandLine, Canvas) {
   new CommandLine();
+  new Canvas();
 });

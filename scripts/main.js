@@ -25,8 +25,8 @@ require.config({
 
 require([
   './views/commandline',
-  './views/canvas'
+  // './views/canvas'
 ], function(CommandLine, Canvas) {
   new CommandLine();
-  new Canvas();
+  // new Canvas();
 });

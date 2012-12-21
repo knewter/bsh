@@ -65,7 +65,7 @@ This project adheres to the Semantic Versioning 2.0.0-rc.1 rules described at:
       - mplayer, mv, ps, rm, rmdir, search, tmux, vim, wiki
 
 ## Shell utilities
-  Bsh supports common utilities found in most POSIX/Linux compliant systems. The belowlist is
+  Bsh supports common utilities found in most POSIX/Linux compliant systems. The below list is
   only a representative sample of the available commands and these descriptions aren't entirely
   accurate. A description of available options as well as a howto on accessing the local shell
   is needed.

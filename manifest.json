@@ -22,7 +22,6 @@
   },
 
   "content_security_policy" : "script-src 'self' https://heath.io/; object-src 'self'"    ,
-  "default_locale"          : "en"                                                        ,
   "description"             : "the last shell I ever want to use, kitchen sink to follow" ,
 
   "icons" : {

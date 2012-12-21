@@ -28,7 +28,7 @@
         "----^----"
 </pre>
 
-The following is rough outline of the project.
+The following is a rough outline of the project.
 
 Bsh is a web browser interface and an environment which provides 
 a command interpreter with common utilities for supporting operations on local devices and 

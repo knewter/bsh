@@ -1,9 +1,5 @@
-The following is a rough outline of the project.
-
-## bsh
 Bsh is a web browser interface and an environment which provides a command interpreter with 
 common utilities for supporting operations on local devices and hypermedia information systems.
-
 
 This project adheres to the Semantic Versioning 2.0.0-rc.1 rules described at: 
   http://semver.org/

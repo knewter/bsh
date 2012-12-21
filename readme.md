@@ -42,6 +42,7 @@ This project adheres to the Semantic Versioning 2.0.0-rc.1 rules described at:
 
 ## TODO:
   README: 
+
     - List and describe the major components of the system in the readme
     - The shell language and commands themselves all need better descriptons
     - a description of the local filesystem api and its available options
@@ -53,6 +54,7 @@ This project adheres to the Semantic Versioning 2.0.0-rc.1 rules described at:
     - any other incomplete sections
 
   Shell:
+
     - provide an interface for working with system hardware
       http://developer.chrome.com/apps/app_hardware.html
     - utilities needing an implementation:
@@ -68,51 +70,65 @@ This project adheres to the Semantic Versioning 2.0.0-rc.1 rules described at:
   accurate. A description of available options as well as a howto on accessing the local shell
   is needed.
 
-  ast: 
-    - an interface for accessing the shell's generated abstract syntax tree
+  ast:
+
+    an interface for accessing the shell's generated abstract syntax tree
 
   bflags:
-    - flags the browser is using
-    - "-c" compile flags
-    - "--v8" v8 flags
+    
+    flags the browser is using
+    "-c" compile flags
+    "--v8" v8 flags
 
   cflow:
-    - a control flow diagram rendered in either two or three dimensions
+    
+    a control flow diagram rendered in either two or three dimensions
 
   cal:
-    - a calendaring application or a call to a website API for fetching either vCal or iCal data
+    
+    a calendaring application or a call to a website API for fetching either vCal or iCal data
 
   cat:
-    - print the contents of a file
+ 
+    print the contents of a file
 
   cd:
-    - change the current working directory
+ 
+    change the current working directory
 
   clear
-    - clear the contents of the command line
+ 
+    clear the contents of the command line
 
   curl
-    - an implmentation of cURL (http://curl.haxx.se/)for bsh
+ 
+    an implmentation of cURL (http://curl.haxx.se/)for bsh
 
   git:
-    - a modified version of https://github.com/danlucraft/git.js 
+ 
+    a modified version of https://github.com/danlucraft/git.js 
 
   history:
-    - a utility for retrieving and manipulating previously issued commands
+ 
+    a utility for retrieving and manipulating previously issued commands
 
   jstags
-    - generates an index of JS objects found in JS source files
+ 
+    generates an index of JS objects found in JS source files
 
   jsxref
-    - automatic generation of documentation and cross references for JS aplications
+ 
+    automatic generation of documentation and cross references for JS aplications
 
   ls
-    - list contents of a directory
+ 
+    list contents of a directory
 
   mon
-    - monitor system and network resources
-    - "--nu" network usage
-    - "--gpu" gpu usage
+ 
+    monitor system and network resources
+    "--nu" network usage
+    "--gpu" gpu usage
 
   
 ## Proxies for getting around Single Origin Policy

@@ -30,7 +30,7 @@
 
 The following is rough outline of the project.
 
-BSH, short for "browser shell", is a web browser interface and an environment which provides 
+Bsh is a web browser interface and an environment which provides 
 a command interpreter with common utilities for supporting operations on local devices and 
 hypermedia information systems.
 

@@ -5,7 +5,7 @@ This project adheres to the Semantic Versioning 2.0.0-rc.1 rules described at:
   http://semver.org/
 
 ## Requirements
-  As of v0.01, the only browser supported is Google Chrome.
+  As of v0.01, the only browser supported is Chromium.
 
 ## TODO:
   README: 

@@ -1,0 +1,119 @@
+// functions
+@function black($opacity){
+  @return rgba(0,0,0,$opacity);
+}
+@function white($opacity){
+  @return rgba(255,255,255,$opacity);
+}
+// end functions
+@mixin experimental($property, $value){
+  -webkit-#{$property} : $value;
+   -khtml-#{$property} : $value;
+     -moz-#{$property} : $value;
+      -ms-#{$property} : $value;
+       -o-#{$property} : $value;
+          #{$property} : $value;
+}
+
+// Used when the property is standard but the value is vendor-specific
+@mixin experimental-value($property, $value){
+  $property : -webkit-#{$value};
+  $property :  -khtml-#{$value};
+  $property :    -moz-#{$value};
+  $property :     -ms-#{$value};
+  $property :      -o-#{$value};
+  $property :         #{$value};
+}
+
+// mixins
+// end mixins
+
+$appBackgroundColor: #161616;
+$selectedTextBackgroundColor: pink;
+
+html, body {
+  background-color: $appBackgroundColor;
+  font-family: monospace;
+  margin: 0;
+  padding: 0;
+}
+
+#terminal {
+  background: url(../images/interlace.png) top left repeat, rgba(255, 255, 255, 0.07);
+  @include experimental(display, box);
+  @include experimental(box-orient, horizontal);
+  height: 100%;
+  width: 100%;
+  @include experimental(transition, all .9s ease-in-out);
+} 
+
+#prompt {
+  color: rgba(0, 142, 236, 1.0);
+  font-size: 12px;
+  font-weight: bold;
+  margin-left: 20px;
+  @include experimental(box-flex, 1);
+}
+
+#prompt.no-focus {
+  font-weight: bold;
+  font-size: 12px;
+  color: rgba(66, 66, 66, 0.9);
+}
+
+input {
+  border-bottom: 1px solid rgba(66, 66, 66, 0.9);
+    //TODO: piping
+  border-top: transparent;
+  border-left: transparent;;
+  border-right: transparent;;
+  font-family: Ubuntu Mono;
+  font-size: 15px;
+  color: rgba(66, 66, 66, 0.9);
+  background-color: black;
+  outline: 0;
+  padding : 12px;
+  text-shadow: 0 0 20px white(.6);
+  width: 91%;
+  @include experimental(box-flex, 2);
+}
+
+input::selection {
+  background-color: $selectedTextBackgroundColor;
+}
+input:focus {
+  // a reminder of something to do later
+  // background: url(../images/microphone.png) no-repeat 100%;
+  background-color: transparent;
+
+  border-bottom: 1px solid rgba(0, 142, 236, 0.9);
+  //TODO: piping
+  border-top: transparent;;
+  border-left: transparent;;
+  border-right: transparent;;
+  font-family: Ubuntu Mono;
+  font-size: 15px;
+  color: rgba(0, 142, 236, 1);
+  outline: 0;
+  padding : 12px;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.05);
+  width: 91%;
+  @include experimental(box-flex, 2);
+  color: rgba(0, 142, 236, 1);
+}
+
+fieldset {
+  border:transparent;
+}
+
+#stdout {
+  color: rgba(0, 142, 236, 0.9);
+  display: -webkit-box;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  -webkit-box-orient: horizontal;
+  width: 100%;
+  height: 85%; 
+  font-size: 30px;
+  font-weight: bold;
+}

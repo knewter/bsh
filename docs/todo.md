@@ -83,3 +83,7 @@ voice instructions
   - "send an email to.."
   - "text message Person..."
   - "find pizza nearby..."
+- check the input while user is typing
+- piping
+- cli apps
+- plug into a volunteer computing platform..maybe

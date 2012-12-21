@@ -1,0 +1,29 @@
+{
+  "author" : {
+    "name"  : "Heath Matlock",
+    "email" : "heathmatlock@gmail.com",
+    "url"   : "http://heath.io"
+  },
+
+  "contributors" : ["Josh Adams", "josh@isotope11.com", "http://github.com/knewter"],
+  "description"  : "the last shell i ever want to use, kitchen sink soon to follow",
+
+  "keywords" : [
+    "shell",
+    "information aggregation",
+    "information management"
+  ],
+
+  "dependencies" : {
+    "node-sass" : ""
+  },
+
+  "scripts" : {
+    "start" : "node server.js"
+  },
+
+  "main"       : "server.js",
+  "name"       : "bsh",
+  "repository" : "git://github.com/heath/bsh",
+  "version"    : "0.0.1"
+}

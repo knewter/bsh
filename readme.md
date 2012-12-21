@@ -100,14 +100,20 @@ This project adheres to the Semantic Versioning 2.0.0-rc.1 rules described at:
 ## Proxies for getting around Single Origin Policy
   Bsh's network operations are strictly confined to sites listed in the manifest file. Better description to come...
 
+
 ## API
+
 
 ## DSL
   Standard input is parsed using a modified version of the recursive descent parser, acorn.js. 
+
   ### Special Characters
+
   ### Default Environment Variables
 
+
 ## Directory Structure and Devices
+
 
 ## Control character conventions
     input:
@@ -117,6 +123,9 @@ This project adheres to the Semantic Versioning 2.0.0-rc.1 rules described at:
 
 ## Terminal remote access
 
+
+## Ascii art even!
+  
 <pre>
             ___
         .-"; ! ;"-.

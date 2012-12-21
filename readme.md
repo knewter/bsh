@@ -1,16 +1,6 @@
 ## bsh
-
-#### install
-    npm install
-
-#### launch
-    npm start
-
-#### visit
-    http://localhost:8001/
-
-#### build the future
-
+Bsh is a web browser interface and an environment which provides a command interpreter with 
+common utilities for supporting operations on local devices and hypermedia information systems.
 
 <pre>
             ___
@@ -29,10 +19,6 @@
 </pre>
 
 The following is a rough outline of the project.
-
-Bsh is a web browser interface and an environment which provides 
-a command interpreter with common utilities for supporting operations on local devices and 
-hypermedia information systems.
 
 This project adheres to the Semantic Versioning 2.0.0-rc.1 rules described at: 
   http://semver.org/

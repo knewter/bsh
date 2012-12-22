@@ -122,22 +122,3 @@ This project adheres to the Semantic Versioning 2.0.0-rc.1 rules described at:
 ## Processes and job control without resorting to the browser's tab manager
 
 ## Terminal remote access
-
-
-## Ascii art even!
-  
-<pre>
-            ___
-        .-"; ! ;"-.
-      .'!  : | :  !`.
-     /\  ! : ! : !  /\
-    /\ |  ! :|: !  | /\
-   (  \ \ ; :!: ; / /  )
-  ( `. \ | !:|:! | / .' )
-  (`. \ \ \!:|:!/ / / .')
-   \ `.`.\ |!|! |/,'.' /
-    `._`.\\\!!!// .'_.'
-       `.`.\\|//.'.'
-        |`._`n'_.'|  kitchen sink to follow...
-        "----^----"
-</pre>

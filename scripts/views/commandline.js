@@ -60,11 +60,10 @@ define([
       //   e.preventDefault();
       // }
 
-      // console.log(e.keyCode);
       var code = parseInt(e.keyCode, 10);
       if (this.navKeys[code]) {
           this.navKeys[code].call(this);
-        }
+      }
     },
 
     navKeys: {

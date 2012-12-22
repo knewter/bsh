@@ -1,13 +1,13 @@
 define([
     'jquery',
     'underscore',
-    'backbone'
-    'text!templates/vim/main.html',
-], function($, _, Backbone, vimTemplate ) {
+    'backbone',
+    // 'text!templates/vim/main.html',
+], function($, _, Backbone) {
 
   return Backbone.View.extend({
 
-    template: _.template(vimTemplate),
+    // template: _.template(vimTemplate),
 
     initialize: function() {
       console.log('omg omg omg');

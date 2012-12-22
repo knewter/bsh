@@ -1,9 +1,7 @@
 most of this came from a few weeks ago and it needs editing and to conform to some styling rules
 some js testing framework:
- - qunit
- - sinon/chai/mocha
- - buster
- - mock4js
+ - qunit + sinon (diff mocks of sinon and mock4js)
+ - maybe buster later
 
 - allow for authentification and maintaining of a session with external server
 - the external server should:

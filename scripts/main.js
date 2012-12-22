@@ -19,14 +19,12 @@ require.config({
     underscore : './lib/underscore',
     backbone   : './lib/backbone',
     text       : './lib/text',
-    three      : './lib/three'
+    ace        : './lib/ace/ace',
   }
 });
 
 require([
   './views/commandline',
-  // './views/canvas'
-], function(CommandLine, Canvas) {
+], function(CommandLine) {
   new CommandLine();
-  // new Canvas();
 });

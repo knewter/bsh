@@ -1,18 +1,7 @@
 {
   "background" : {
       "scripts" : [
-        "scripts/background.js"        ,
-        "scripts/lib/jquery.js"        ,
-        "scripts/lib/underscore.js"    ,
-        "scripts/lib/backbone.js"      ,
-        "scripts/lib/require.js"       ,
-        "scripts/lib/text.js"          ,
-        "scripts/lib/three.js"         ,
-        "scripts/views/commandline.js" ,
-        "scripts/views/prompt.js"      ,
-        "scripts/views/stdout.js"      ,
-        "scripts/views/vim.js"         ,
-        "scripts/main.js"
+        "scripts/background.js"
       ]
     },
 
@@ -52,6 +41,11 @@
     "webNavigation"
   ],
 
+  "sandbox" : {
+    "pages" : [
+      "assets/templates/vim/main.html"
+    ]
+},
   "update_url" : "http://50.116.41.64/updates.xml" ,
   "version"    : "1"
 }

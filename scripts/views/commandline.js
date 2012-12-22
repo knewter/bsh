@@ -4,8 +4,8 @@ define([
     'backbone',
     '../views/prompt',
     '../views/stdout',
-    '../views/vim'
-], function($, _, Backbone, Prompt, StandardOutput, Vim) {
+    '../views/textEditor'
+], function($, _, Backbone, Prompt, StandardOutput, TextEditor) {
 
   return Backbone.View.extend({
 
@@ -206,8 +206,9 @@ define([
       },
 
       vim: function() {
-        debugger;
-      }
+        this.commands.clear();
+        var vim = new TextEditor();
+      },
 
     },
 

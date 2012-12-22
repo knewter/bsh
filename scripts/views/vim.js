@@ -2,20 +2,23 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    // 'text!templates/vim/main.html',
 ], function($, _, Backbone) {
 
   return Backbone.View.extend({
 
     // template: _.template(vimTemplate),
 
+    el: 'editor',
+
     initialize: function() {
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    editor.getSession().setMode("ace/mode/javascript");
+
       console.log('omg omg omg');
     },
 
     render: function() {
-      this.$el.html("<input></input>");
-      return this;
     },
 
     events: {

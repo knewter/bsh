@@ -24,5 +24,9 @@ define([
       // debugger;
       this.$el.removeClass('no-focus');
     },
+
+    set: function(val){
+      this.$el.html(val);
+    }
   });
 });

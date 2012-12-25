@@ -28,7 +28,10 @@ define([
         this.cwd  = fs.root,
         this.type = storageType,
         this.size = storageSize;
-        // debugger;
+        console.log(this);
+        // FIXME: Why is `this` window, here?  The following won't work till
+        // that's fixed.
+        this.updatePrompt();
       });
     },
       
@@ -84,6 +87,14 @@ define([
       this.historyRefPointer = this.history.length;
       this.tokenize(input);
       this.checkForValidCommand(input);
+      this.updatePrompt();
+    },
+
+    updatePrompt: function(){
+      var newPrompt = '';
+      newPrompt = window.cwd.fullPath;
+      newPrompt += ' $';
+      this.prompt.set(newPrompt);
     },
 
     tokenize: function(input) {
@@ -106,21 +117,47 @@ define([
 
     history : [],
 
+    listFiles: function(successCallback) {
+      if (!fs) {
+        return;
+      }
+
+      // Read contents of current working directory. According to spec, need to
+      // keep calling readEntries() until length of result array is 0. We're
+      // guarenteed the same entry won't be returned again.
+      var entries = [];
+      var reader = cwd.createReader();
+
+      // // the following is needed to ls
+      var util = util || {};
+      util.toArray = function(list) {
+        return Array.prototype.slice.call(list || [], 0);
+      };
+
+      var readEntries = function() {
+        reader.readEntries(function(results) {
+          if (!results.length) {
+            entries = entries.sort();
+            successCallback(entries);
+          } else {
+            entries = entries.concat(util.toArray(results));
+            readEntries();
+          }
+        });
+      };
+
+      readEntries();
+    },
+
     commands: {
 
       // This needs to be cleaner, so it's commented out for now
       // // this created a file called 'test'
-      // cwd.getFile('test', {create: true, exclusive: true}, function(fileEntry) {
-      //   fileEntry.createWriter(function(fileWriter) {
-      //     fileWriter.write('test');
-      //   });
-      // })
-
-      // // the following is needed to ls
-      // var util = util || {};
-      // util.toArray = function(list) {
-      //   return Array.prototype.slice.call(list || [], 0);
-      // };
+      //cwd.getFile('test', {create: true, exclusive: true}, function(fileEntry) {
+        //fileEntry.createWriter(function(fileWriter) {
+          //fileWriter.write('test');
+        //});
+      //})
 
       // ls(function(entries) {
       //   if (entries.length) {
@@ -135,38 +172,13 @@ define([
       //   }
       // });
 
-      // function ls(successCallback) {
-      //   if (!fs) {
-      //     return;
-      //   }
-
-      //   // Read contents of current working directory. According to spec, need to
-      //   // keep calling readEntries() until length of result array is 0. We're
-      //   // guarenteed the same entry won't be returned again.
-      //   var entries = [];
-      //   var reader = cwd.createReader();
-
-      //   var readEntries = function() {
-      //     reader.readEntries(function(results) {
-      //       console.log('results: ', results);
-      //       console.log('entries: ', entries);
-      //       if (!results.length) {
-      //         console.log(1);
-
-      //         entries = entries.sort();
-      //         console.log(entries);
-      //         successCallback(entries);
-      //       } else {
-      //         console.log(2);
-      //         entries = entries.concat(util.toArray(results));
-      //         console.log(entries);
-      //         readEntries();
-      //       }
-      //     });
-      //   };
-
-      //   readEntries();
-      // },
+      ls: function() {
+        this.listFiles(function(entries){
+          STDOUT.setOutput(entries.map(function(entry){
+            return entry.name;
+          }));
+        });
+      },
       
       // the following is my own personal code,
       // the code above is for touching, and LSing
@@ -185,7 +197,7 @@ define([
 
       //FIXME
       mkdir: function() {
-        cwd.getDirectory('beepboop', {create: true, exclusive: true});
+        cwd.getDirectory(this.args[0], {create: true, exclusive: true});
       },
 
       //FIXME
